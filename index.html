@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        padding: 20px;
+    }
+    h2 {
+        color: #333;
+        background-color: #ddd;
+        padding: 10px;
+        border-left: 5px solid #007bff;
+        font-size: 20px;
+    }
+    pre {
+        background: #222;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 16px;
+        border-left: 5px solid #007bff;
+    }
+    pre code {
+        font-family: "Courier New", monospace;
+    }
+</style>
+<body>
+    <h2>program 1</h2>
+   <pre>
+    import java.io.*;
+    import java.awt.*;
+    importjava.applet.*;
+    import java.util.*;
+    public class DDA extendsApplet {
+    public void paint(Graphics g) {
+        double dx, dy, steps, x, y, k;
+        double xc, yc;
+        double x1 = 200, y1 = 500, x2 = 600, y2 = 200;
+        dx = x2 - x1;
+        dy = y2 - y1;
+        if (Math.abs(dx) > Math.abs(dy))
+            steps = Math.abs(dx);
+        else
+            steps = Math.abs(dy);
+        xc = (dx / steps);
+        yc = (dy / steps);
+        x = x1;
+        y = y1;
+        g.fillOval(200, 500, 5, 5);
+        for (k = 1; k <= steps; k++) {
+            x = x + xc;
+            y = y + yc;
+            g.fillOval((int) x, (int) y, 5, 5);
+        }
+    }
+}
+ /*(appletcode="DDA.class"width="800"height="800") 
+(/applet)*/
+    </pre>
+
+    <h2>program 2</h2>
+   <pre>
+    import java.io.*;
+    import java.awt.*;
+    importjava.applet.*;
+    /*(appletcode="circle"height=800width=800) 
+    (/applet)*/
+    public class circle extends Applet {
+    public void paint(Graphics g) {
+        int xc, yc, r;
+        xc = 125;
+        yc = 125;
+        r = 60;
+        int x = 0;
+        int y = r;
+        int p = 3 - 2 * r;
+        do {
+            if (p < 0)
+                p = p + 4 * x + 6;
+            else {
+                p = p + 4 * (x - y) + 10;
+                y = y - 1;
+            }
+            x = x + 1;
+            g.drawLine(xc + x, yc + y, xc + x, yc + y);
+            g.drawLine(x + xc, yc - y, xc + x, yc - y);
+            g.drawLine(xc - x, yc + y, xc - x, yc + y);
+            g.drawLine(xc - x, yc - y, xc - x, yc - y);
+            g.drawLine(xc + y, yc + x, xc + y, yc + x);
+            g.drawLine(xc + y, yc - x, xc + y, yc - x);
+            g.drawLine(xc - y, yc + x, xc - y, yc + x);
+            g.drawLine(xc - y, yc - x, xc - y, yc - x);
+        }
+        while (x < y);
+    }
+}
+    </pre>
+
+    <h2>program 3</h2>
+   <pre>
+    import java.io.*;
+    importjava.applet.*;
+    import java.util.*;
+    import java.awt.*;
+    public class Bre1extendsApplet {
+    publicvoidpaint(Graphicsg) {
+        int x, y, k;
+        doubledx, dy, p;
+        intx1 = 200, y1 = 300, x2 = 600, y2 = 400;
+        dx = Math.abs(x2 - x1);
+        dy = Math.abs(y2 - y1);
+        x = x1;
+        y = y1;
+        p = 2 * dy - dx;
+        g.fillOval(200, 300, 5, 5);
+        for (k = 0; k < dx; k++) {
+            if (p < 0) {
+                g.fillOval(x++, y, 5, 5);
+                p = p + (2 * dy);
+            } else {
+                g.fillOval(x++, y++, 5, 5);
+                p = p + (2 * (dy - dx));
+            }
+        }
+    }
+}
+/*(appletcode="Bre1.class"width="800"height="800") 
+(/applet)*/</pre>
+
+    <h2>program 4</h2>
+   <pre>
+    import java.io.*;
+    import java.awt.*;
+    import java.awt.event.*;
+    import java.applet.*;
+    import java.util.*;
+    /*(appletcode="scale"width=500height=500)
+    (/applet)*/
+    Public class scale extends Applet implements
+    ActionListener {
+        int s;
+        int x, y, x1, y1, x2, y2;
+        int sy, sx;
+        public void init() {
+            Buttonb1;
+            b1 = new Button("scale");
+            add(b1);
+            b1.addActionListener(this);
+        }
+        Public void action Performed(ActionEvent ae) {
+            if (ae.getActionCommand() == "scale")
+                s = 1;
+            repaint();
+        }
+        public void paint(Graphicsg) {
+            x = 100;
+            y = 150;
+            x1 = 150;
+            y1 = 50;
+            x2 = 200;
+            y2 = 200;
+            sx = 3;
+            sy;
+            g.drawLine(x, y, x1, y1);
+            g.drawLine(x1, y1, x2, y2);
+            g.drawLine(x2, y2, x, y);
+            if (s == 1) {
+                x = (sx * x);
+                y = (sy * y);
+                x1 = (sx * x1);
+                y1 = (sy * y2);
+                x2 = (sx * x2);
+                y2 = (sy * y2);
+                g.drawLine(x, y, x1, y1);
+                g.drawLine(x1, y1, x2, y2);
+                g.drawLine(x2, y2, x, y);
+            }
+        }
+    }</pre>
+
+    <h2>program 5</h2>
+   <pre>
+import java.io.*;
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+import java.util.*;
+import java.math.*;
+/*(appletcode="rotate1"width=300height=200)
+(/applet)*/
+public class rotate1 extends Applet implements ActionListener {
+    int s, x1, x2, x3, y1, y2, y3, a;
+    double ra;
+    publicvoidinit() {
+        Buttonb1;
+        b1 = new Button("rotate");
+        add(b1);
+        b1.addActionListener(this);
+    }
+    public void action Performed(ActionEvente) {
+        s = 1;
+        repaint();
+    }
+    public void paint(Graphicsg) {
+        a = -40;
+        x1 = 300;
+        y1 = 200;
+        x2 = 200;
+        y2 = 200;
+        x3 = 400;
+        y3 = 400;
+        g.drawLine(x1, y1, x2, y2);
+        g.drawLine(x2, y2, x3, y3);
+        g.drawLine(x3, y3, x1, y1);
+        if (s == 1) {
+            ra = 3.14 / 180 * a;
+            x1 = ((int)(x1 * Math.cos(ra)) + (int)(y1 * Math.sin(ra)));
+            y1 = ((int)(x1 * Math.sin(ra)) + (int)(y1 * Math.cos(ra)));
+            x2 = ((int)(x2 * Math.cos(ra)) + (int)(y2 * Math.sin(ra)));
+            y2 = ((int)(x2 * Math.sin(ra)) + (int)(y2 * Math.cos(ra)));
+            x3 = ((int)(x3 * Math.cos(ra)) + (int)(y3 * Math.sin(ra)));
+            y3 = ((int)(x3 * Math.sin(ra)) + (int)(y3 * Math.cos(ra)));
+        }
+        g.drawLine(x1, y1, x2, y2);
+        g.drawLine(x2, y2, x3, y3);
+        g.drawLine(x3, y3, x1, y1);
+    }
+}</pre>
+
+    <h2>program 6</h2>
+   <pre>
+    import java.io.*; 
+    import java.applet.*; 
+    import java.awt.*; 
+    import java.awt.event.*; 
+    import java.util.*; 
+    
+    /*(applet code="translate" width=800 height=800)(/applet)*/  
+    
+    public class translate extends Applet implements ActionListener { 
+        int t; 
+        int x, y, x1, y1, x2, y2; 
+        int tx, ty; 
+        
+        public void init() { 
+            Button b1; 
+            b1 = new Button("translate"); 
+            add(b1); 
+            b1.addActionListener(this); 
+        } 
+        
+        public void actionPerformed(ActionEvent ae) { 
+            if (ae.getActionCommand() == "translate") 
+                t = 1; 
+            repaint(); 
+        } 
+        
+        public void paint(Graphics g) { 
+            x = 150; y = 50; 
+            x1 = 100; y1 = 150; 
+            x2 = 200; y2 = 150; 
+            tx = 100; ty = 100; 
+            
+            g.drawLine(x, y, x1, y1); 
+            g.drawLine(x1, y1, x2, y2); 
+            g.drawLine(x2, y2, x, y); 
+            
+            if (t == 1) { 
+                x = (tx + x); 
+                y = (ty + y); 
+                x1 = (tx + x1); 
+                y1 = (ty + y1); 
+                x2 = (tx + x2); 
+                y2 = (ty + y2); 
+                
+                g.drawLine(x, y, x1, y1); 
+                g.drawLine(x1, y1, x2, y2); 
+                g.drawLine(x2, y2, x, y); 
+            } 
+        } 
+    }</pre>
+
+    <h2>program 7</h2>
+   <pre>
+import java.io.*; 
+import java.applet.*; 
+import java.awt.*; 
+import java.util.*; 
+import java.math.*; 
+
+/*(applet code="bounce" width=900 height=900)(/applet)*/ 
+
+public class bounce extends Applet { 
+    int x, y, w, h, x1, y1, R, G, B; 
+    
+    public void init() { 
+        x = 10; 
+        y = 10; 
+        w = 100; 
+        h = 100; 
+        x1 = 100; 
+        y1 = 50; 
+        R = 0; 
+        G = 250; 
+        B = 250; 
+    } 
+    
+    public void paint(Graphics g) { 
+        Color c = new Color(R, G, B); 
+        g.setColor(c); 
+        g.fillOval(x, y, w, h); 
+        repaint(); 
+        
+        try { 
+            Thread.sleep(1000); 
+        } catch (InterruptedException ie) { 
+        } 
+        
+        if (x > 2000) { 
+            x = 10; 
+        } 
+        if (y > 0) { 
+            y1 = 50; 
+        } 
+        if (y > 900) { 
+            y1 = 50; 
+        } 
+        
+        x += x1; 
+        y += y1; 
+    } 
+}</pre>
+    
+<h2>program 8</h2>
+   <pre>
+import java.io.*; 
+import java.applet.*; 
+import java.awt.*; 
+import java.util.*; 
+import java.math.*; 
+
+/*(applet code="randomball" width=500 height=500>(/applet>*/  
+
+public class randomball extends Applet { 
+    int x, y, w, h; 
+    
+    public void init() { 
+        x = 100; 
+        y = 150; 
+        w = 100; 
+        h = 100; 
+    } 
+    
+    public void paint(Graphics g) { 
+        for (int i = 0; i <= 10; i++) { 
+            g.fillOval(x, y, w, h); 
+            
+            try { 
+                Thread.sleep(100); 
+            } catch (InterruptedException ie) { 
+            } 
+            
+            Random r = new Random(); 
+            x = r.nextInt(600); 
+            y = r.nextInt(600); 
+            int R = r.nextInt(125); 
+            int G = r.nextInt(210); 
+            int B = r.nextInt(205); 
+            Color c = new Color(R, G, B); 
+            g.setColor(c); 
+        } 
+    } 
+}</pre>
+
+<h2>program 9</h2>
+   <pre>
+    import java.applet.*; 
+    import java.awt.*; 
+    import java.awt.event.*; 
+    
+    /*(applet code="tilecase" width=900 height=900>(/applet>*/  
+    
+    public class tilecase extends Applet implements ActionListener { 
+        Image img; 
+        int w = 100, h = 100, x, y, c; 
+        Button b1 = new Button("tile"); 
+        Button b2 = new Button("cascade"); 
+        
+        public void init() { 
+            img = getImage(getCodeBase(), "1.jpg"); 
+            b1.addActionListener(this); 
+            add(b1); 
+            b2.addActionListener(this); 
+            add(b2); 
+        } 
+        
+        public void actionPerformed(ActionEvent ae) { 
+            if (ae.getActionCommand() == "tile") 
+                c = 1; 
+            if (ae.getActionCommand() == "cascade") 
+                c = 2; 
+            repaint(); 
+        } 
+        
+        public void paint(Graphics r) { 
+            x = 0; 
+            y = 0; 
+            
+            if (c == 1) { 
+                while (y < getHeight()) { 
+                    r.drawImage(img, x, y, this); 
+                    x += w; 
+                    if (x > getWidth()) { 
+                        x = 0; 
+                        y += h; 
+                    } 
+                } 
+            } 
+            
+            if (c == 2) { 
+                for (int i = 0; i <= 8; i++) { 
+                    r.drawImage(img, x, y, this); 
+                    x += 30; 
+                    y += 30; 
+                } 
+            } 
+        } 
+    }</pre>
+
+<h2>program 10</h2>
+   <pre>
+import java.io.*; 
+import java.applet.*; 
+import java.awt.*; 
+
+/*(applet code="size" width=800 height=800>(/applet>*/  
+
+public class size extends Applet { 
+    Image img; 
+    int w, h, x, y; 
+    
+    public void init() { 
+        w = 500; 
+        h = 500; 
+        x = 0; 
+        y = 0; 
+        img = getImage(getDocumentBase(), "1.jpg"); 
+    } 
+    
+    public void paint(Graphics g) { 
+        g.drawImage(img, x, y, w, h, this); 
+        
+        try { 
+            Thread.sleep(100); 
+        } catch (InterruptedException ie) {} 
+        
+        if (w > 0) 
+            repaint(); 
+        
+        x += 5; 
+        y += 5; 
+        h -= 5; 
+        w -= 5; 
+    } 
+}</pre>
+    
+</body>
+</html>
