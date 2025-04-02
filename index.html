@@ -13,12 +13,16 @@
         padding: 20px;
     }
     h2 {
-        color: #333;
-        background-color: #ddd;
-        padding: 10px;
-        border-left: 5px solid #007bff;
-        font-size: 20px;
-    }
+            color: #333;
+            background-color: #ddd;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the left */
+            gap: 1200px; /* Adds spacing between button and title */
+        }
     pre {
         background: #222;
         color: #fff;
@@ -31,10 +35,26 @@
     pre code {
         font-family: "Courier New", monospace;
     }
+
+    .copy-btn {
+            display: block;
+            margin: 10px 0;
+            padding: 5px 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+    }
+    .copy-btn:hover {
+            background: #0056b3;
+        }
 </style>
 <body>
-    <h2>program 1</h2>
-   <pre>
+    <h2>Program 1 <button class="copy-btn" onclick="copyCode('code1')">Copy Code</button>
+    </h2>
+    <pre id="code1">
     import java.io.*;
     import java.awt.*;
     importjava.applet.*;
@@ -66,8 +86,9 @@
 (/applet)*/
     </pre>
 
-    <h2>program 2</h2>
-   <pre>
+    <h2>Program 2 <button class="copy-btn" onclick="copyCode('code2')">Copy Code</button>
+    </h2>
+    <pre id="code2">
     import java.io.*;
     import java.awt.*;
     importjava.applet.*;
@@ -104,8 +125,9 @@
 }
     </pre>
 
-    <h2>program 3</h2>
-   <pre>
+    <h2>Program 3 <button class="copy-btn" onclick="copyCode('code3')">Copy Code</button>
+    </h2>
+    <pre id="code3">
     import java.io.*;
     importjava.applet.*;
     import java.util.*;
@@ -135,8 +157,9 @@
 /*(appletcode="Bre1.class"width="800"height="800") 
 (/applet)*/</pre>
 
-    <h2>program 4</h2>
-   <pre>
+    <h2>Program 4 <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
+    </h2>
+    <pre id="code4">
     import java.io.*;
     import java.awt.*;
     import java.awt.event.*;
@@ -186,8 +209,9 @@
         }
     }</pre>
 
-    <h2>program 5</h2>
-   <pre>
+    <h2>Program 5 <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
+    </h2>
+    <pre id="code5">
 import java.io.*;
 import java.awt.*;
 import java.applet.*;
@@ -235,8 +259,9 @@ public class rotate1 extends Applet implements ActionListener {
     }
 }</pre>
 
-    <h2>program 6</h2>
-   <pre>
+    <h2>Program 6 <button class="copy-btn" onclick="copyCode('code6')">Copy Code</button>
+    </h2>
+    <pre id="code6">
     import java.io.*; 
     import java.applet.*; 
     import java.awt.*; 
@@ -288,8 +313,9 @@ public class rotate1 extends Applet implements ActionListener {
         } 
     }</pre>
 
-    <h2>program 7</h2>
-   <pre>
+    <h2>Program 7 <button class="copy-btn" onclick="copyCode('code7')">Copy Code</button>
+    </h2>
+    <pre id="code7">
 import java.io.*; 
 import java.applet.*; 
 import java.awt.*; 
@@ -339,8 +365,9 @@ public class bounce extends Applet {
     } 
 }</pre>
     
-<h2>program 8</h2>
-   <pre>
+<h2>Program 8 <button class="copy-btn" onclick="copyCode('code8')">Copy Code</button>
+</h2>
+<pre id="code8">
 import java.io.*; 
 import java.applet.*; 
 import java.awt.*; 
@@ -380,8 +407,9 @@ public class randomball extends Applet {
     } 
 }</pre>
 
-<h2>program 9</h2>
-   <pre>
+<h2>Program 9 <button class="copy-btn" onclick="copyCode('code9')">Copy Code</button>
+</h2>
+<pre id="code9">
     import java.applet.*; 
     import java.awt.*; 
     import java.awt.event.*; 
@@ -435,8 +463,9 @@ public class randomball extends Applet {
         } 
     }</pre>
 
-<h2>program 10</h2>
-   <pre>
+<h2>Program 10 <button class="copy-btn" onclick="copyCode('code10')">Copy Code</button>
+</h2>
+<pre id="code10">
 import java.io.*; 
 import java.applet.*; 
 import java.awt.*; 
@@ -471,6 +500,16 @@ public class size extends Applet {
         w -= 5; 
     } 
 }</pre>
-    
+
+<script>
+    function copyCode(id) {
+        const code = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(code).then(() => {
+            alert("Code copied to clipboard!");
+        }).catch(err => {
+            console.error("Error copying text: ", err);
+        });
+    }
+</script>
 </body>
 </html>
