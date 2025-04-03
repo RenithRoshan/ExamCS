@@ -55,451 +55,218 @@
     <h2>Program 1 <button class="copy-btn" onclick="copyCode('code1')">Copy Code</button>
     </h2>
     <pre id="code1">
-    import java.io.*;
-    import java.awt.*;
-    importjava.applet.*;
-    import java.util.*;
-    public class DDA extendsApplet {
-    public void paint(Graphics g) {
-        double dx, dy, steps, x, y, k;
-        double xc, yc;
-        double x1 = 200, y1 = 500, x2 = 600, y2 = 200;
-        dx = x2 - x1;
-        dy = y2 - y1;
-        if (Math.abs(dx) > Math.abs(dy))
-            steps = Math.abs(dx);
-        else
-            steps = Math.abs(dy);
-        xc = (dx / steps);
-        yc = (dy / steps);
-        x = x1;
-        y = y1;
-        g.fillOval(200, 500, 5, 5);
-        for (k = 1; k <= steps; k++) {
-            x = x + xc;
-            y = y + yc;
-            g.fillOval((int) x, (int) y, 5, 5);
-        }
-    }
-}
- /*(appletcode="DDA.class"width="800"height="800") 
-(/applet)*/
-    </pre>
+        CREATE DATABASE CO2;
+        USE CO2;
+        CREATE TABLE COURSEE (
+        C_ID INT PRIMARY KEY auto_increment, COURSE_NAME VARCHAR(50),
+        COURSE_DURATION INT,
+        COURSE_OUTCOME VARCHAR (50)
+        );
+         SHOW TABLES;
+         INSERT INTO COURSE (COURSE_NAME,COURSE_DURATION, COURSE_OUTCOME)
+        VALUES ("BSC",3,"TO GET A JOB"); INSERT INTO COURSEE
+        (COURSE_NAME,COURSE_DURATION,COURSE_OUTCOME)
+        VALUES ("BCA",3,"TO GET A JOB"); INSERT INTO COURSEE
+        (COURSE_NAME,COURSE_DURATION,COURSE_OUTCOME)
+        VALUES ("MBA",2,"TO MAKE A BUSINESS");
+        
+         SELECT * FROM COURSE;
+         CREATE TABLE STUDENTS (
+        S_ID INT PRIMARY KEY auto_increment, STUDENT_NAME VARCHAR(50),
+        STUDENT_REGNO INT,
+        STUDENT_PLACE VARCHAR (50)
+        );  
+
+        INSERT INTO STUDENTS (STUDENT_NAME ,STUDENT_REGNO,STUDENT_PLACE)
+        VALUES ("VETRI", 1234,"THOOTHUKUDI");
+         CREATE TABLE STAFFS (
+        S_ID INT PRIMARY KEY auto_increment, STAFF_NAME VARCHAR(50),
+        STAFF_DESIGNATION VARCHAR(50), STAFF_QUALIFICATION VARCHAR (50)
+        );
+
+         INSERT INTO STAFFS
+        (STAFF_NAME,STAFF_DESIGNATION,STAFF_QUALIFICATION) VALUES ("VETRIVEL
+        PANDIAN","ASSISTANT PROFESSOR","MCA");
+         SHOW DATABASES;
+         SELECT * FROM STAFFS;
+         SELECT * FROM STUDENTS;
+         SELECT * FROM COURSE;  </pre>
 
     <h2>Program 2 <button class="copy-btn" onclick="copyCode('code2')">Copy Code</button>
     </h2>
-    <pre id="code2">
-    import java.io.*;
-    import java.awt.*;
-    importjava.applet.*;
-    /*(appletcode="circle"height=800width=800) 
-    (/applet)*/
-    public class circle extends Applet {
-    public void paint(Graphics g) {
-        int xc, yc, r;
-        xc = 125;
-        yc = 125;
-        r = 60;
-        int x = 0;
-        int y = r;
-        int p = 3 - 2 * r;
-        do {
-            if (p < 0)
-                p = p + 4 * x + 6;
-            else {
-                p = p + 4 * (x - y) + 10;
-                y = y - 1;
-            }
-            x = x + 1;
-            g.drawLine(xc + x, yc + y, xc + x, yc + y);
-            g.drawLine(x + xc, yc - y, xc + x, yc - y);
-            g.drawLine(xc - x, yc + y, xc - x, yc + y);
-            g.drawLine(xc - x, yc - y, xc - x, yc - y);
-            g.drawLine(xc + y, yc + x, xc + y, yc + x);
-            g.drawLine(xc + y, yc - x, xc + y, yc - x);
-            g.drawLine(xc - y, yc + x, xc - y, yc + x);
-            g.drawLine(xc - y, yc - x, xc - y, yc - x);
-        }
-        while (x < y);
-    }
-}
-    </pre>
+    <pre id="code2">SHOW DATABASES;
+        CREATE DATABASE ITEM;
+        USE ITEM;
+        CREATE TABLE STOCK ( ITEM_NO INT PRIMARY KEY AUTO_INCREMENT ,
+        ITEM_NAME VARCHAR(50) , QUANTITY INT , PRICE INT , TOTAL INT );
+         SHOW TABLES;
+         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“SUGAR” , 500
+        , 20 , 250 );
+         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“RICE” , 1000 ,
+         80 , 1250 );
+         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“OIL” , 2500 ,
+         200 , 2250 );
+         SELECT * FROM STOCK
+         DELETE FROM STOCK WHERE ITEM_NO = 4;
+         UPDATE STOCK SET ITEM_NAME = ‘YIPEE’ WHERE ITEM_NO=1;
+         DROP TABLE STOCK;</pre>
 
     <h2>Program 3 <button class="copy-btn" onclick="copyCode('code3')">Copy Code</button>
     </h2>
-    <pre id="code3">
-    import java.io.*;
-    importjava.applet.*;
-    import java.util.*;
-    import java.awt.*;
-    public class Bre1extendsApplet {
-    publicvoidpaint(Graphicsg) {
-        int x, y, k;
-        doubledx, dy, p;
-        intx1 = 200, y1 = 300, x2 = 600, y2 = 400;
-        dx = Math.abs(x2 - x1);
-        dy = Math.abs(y2 - y1);
-        x = x1;
-        y = y1;
-        p = 2 * dy - dx;
-        g.fillOval(200, 300, 5, 5);
-        for (k = 0; k < dx; k++) {
-            if (p < 0) {
-                g.fillOval(x++, y, 5, 5);
-                p = p + (2 * dy);
-            } else {
-                g.fillOval(x++, y++, 5, 5);
-                p = p + (2 * (dy - dx));
-            }
-        }
-    }
-}
-/*(appletcode="Bre1.class"width="800"height="800") 
-(/applet)*/</pre>
+    <pre id="code3">CREATE DATABASE THIRD;
+        SHOW DATABASES;
+        USE THIRD;
+        CREATE TABLE employee (
+        employee_id INT AUTO_INCREMENT PRIMARY KEY,
+        employee_name VARCHAR(255),
+        department VARCHAR(255),
+        salary DECIMAL(10, 2),
+        hire_date DATE
+        );
+         INSERT INTO employee (employee_name, department, salary, hire_date)
+        VALUES
+        ('John Doe', 'Engineering', 60000.00, '2020-01-15'),
+        ('Jane Smith', 'Marketing', 55000.00, '2019-05-20'),
+        ('MichaelJohnson', 'HR', 50000.00, '2021-03-10'),
+        ('Emily Brown', 'Engineering', 65000.00, '2022-02-28');
+         SELECT * FROM employee;
+         SELECT * FROM employee WHERE department = 'Engineering';
+         SELECT * FROM employee WHERE salary > 55000;
+         SELECT * FROM employee WHERE hire_date > '2021-01-01';
+         SELECT * FROM employee ORDER BY salary DESC;
+         SELECT MAX(salary) AS highest_salary FROM employee;
+         SELECT AVG(salary) AS average_salary FROM employee;</pre>
 
     <h2>Program 4 <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
     </h2>
-    <pre id="code4">
-    import java.io.*;
-    import java.awt.*;
-    import java.awt.event.*;
-    import java.applet.*;
-    import java.util.*;
-    /*(appletcode="scale"width=500height=500)
-    (/applet)*/
-    Public class scale extends Applet implements
-    ActionListener {
-        int s;
-        int x, y, x1, y1, x2, y2;
-        int sy, sx;
-        public void init() {
-            Buttonb1;
-            b1 = new Button("scale");
-            add(b1);
-            b1.addActionListener(this);
-        }
-        Public void action Performed(ActionEvent ae) {
-            if (ae.getActionCommand() == "scale")
-                s = 1;
-            repaint();
-        }
-        public void paint(Graphicsg) {
-            x = 100;
-            y = 150;
-            x1 = 150;
-            y1 = 50;
-            x2 = 200;
-            y2 = 200;
-            sx = 3;
-            sy;
-            g.drawLine(x, y, x1, y1);
-            g.drawLine(x1, y1, x2, y2);
-            g.drawLine(x2, y2, x, y);
-            if (s == 1) {
-                x = (sx * x);
-                y = (sy * y);
-                x1 = (sx * x1);
-                y1 = (sy * y2);
-                x2 = (sx * x2);
-                y2 = (sy * y2);
-                g.drawLine(x, y, x1, y1);
-                g.drawLine(x1, y1, x2, y2);
-                g.drawLine(x2, y2, x, y);
-            }
-        }
-    }</pre>
+    <pre id="code4">SHOW DATABASES;
+        CREATE DATABASE KAMARAJCOLLEGE;
+        USE KAMARAJCOLLEGE;
+        CREATE TABLE STUDENT_MARK (
+        STU_REGNO INT PRIMARY KEY,
+        STU_NAME VARCHAR(100),
+        STU_DEGREE VARCHAR(50),
+        MYSQL_LABMARKS INT,
+        JAVA_MARKS INT
+       );
+        SHOW TABLES;
+        DESCRIBE STUDENT_MARK;
+        INSERT INTO STUDENT_MARK (STU_REGNO, STU_NAME, STU_DEGREE,
+        MYSQL_LABMARKS,JAVA_MARKS) VALUES (125, 'VIGNESH', 'BSC', 100, 99);
+        SELECT * FROM STUDENT_MARK
+        SELECT COUNT(STU_DEGREE) FROM STUDENT_MARK;
+        SELECT STU_NAME, COUNT(STU_NAME) FROM STUDENT_MARK GROUP BY STU_NAME;
+        SELECT SUM(MYSQL_LABMARKS) AS TOTAL FROM STUDENT_MARK;
+       SELECT SUM(MYSQL_LABMARKS + JAVA_MARKS) AS TOTAL_MARKS FROM
+       STUDENT_MARK WHERE STU_REGNO = 125;
+       SELECT AVG(MYSQL_LABMARKS) AS TOTAL_AVERAGE FROM STUDENT_MARK;
+       SELECT MAX(MYSQL_LABMARKS) FROM STUDENT_MARK;
+       SELECT STU_NAME, MYSQL_LABMARKS AS FIRST_MARKS
+       FROM STUDENT_MARKS
+      WHERE MYSQL_LABMARKS = (SELECT MAX(MYSQL_LABMARKS) FROM
+      STUDENT_MARKS);
+       SELECT MIN(MYSQL_LABMARKS) FROM STUDENT_MARKS;
+       SELECT STU_NAME, MYSQL_LABMARKS AS LAST_MARKS
+       FROM STUDENT_MARKS
+      WHERE MYSQL_LABMARKS = (SELECT MIN(MYSQL_LABMARKS) FROM
+      STUDENT_MARKS);</pre>
 
     <h2>Program 5 <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
     </h2>
     <pre id="code5">
-import java.io.*;
-import java.awt.*;
-import java.applet.*;
-import java.awt.event.*;
-import java.util.*;
-import java.math.*;
-/*(appletcode="rotate1"width=300height=200)
-(/applet)*/
-public class rotate1 extends Applet implements ActionListener {
-    int s, x1, x2, x3, y1, y2, y3, a;
-    double ra;
-    publicvoidinit() {
-        Buttonb1;
-        b1 = new Button("rotate");
-        add(b1);
-        b1.addActionListener(this);
-    }
-    public void action Performed(ActionEvente) {
-        s = 1;
-        repaint();
-    }
-    public void paint(Graphicsg) {
-        a = -40;
-        x1 = 300;
-        y1 = 200;
-        x2 = 200;
-        y2 = 200;
-        x3 = 400;
-        y3 = 400;
-        g.drawLine(x1, y1, x2, y2);
-        g.drawLine(x2, y2, x3, y3);
-        g.drawLine(x3, y3, x1, y1);
-        if (s == 1) {
-            ra = 3.14 / 180 * a;
-            x1 = ((int)(x1 * Math.cos(ra)) + (int)(y1 * Math.sin(ra)));
-            y1 = ((int)(x1 * Math.sin(ra)) + (int)(y1 * Math.cos(ra)));
-            x2 = ((int)(x2 * Math.cos(ra)) + (int)(y2 * Math.sin(ra)));
-            y2 = ((int)(x2 * Math.sin(ra)) + (int)(y2 * Math.cos(ra)));
-            x3 = ((int)(x3 * Math.cos(ra)) + (int)(y3 * Math.sin(ra)));
-            y3 = ((int)(x3 * Math.sin(ra)) + (int)(y3 * Math.cos(ra)));
-        }
-        g.drawLine(x1, y1, x2, y2);
-        g.drawLine(x2, y2, x3, y3);
-        g.drawLine(x3, y3, x1, y1);
-    }
-}</pre>
+        CREATE TABLE department (
+            department_id INT AUTO_INCREMENT PRIMARY KEY,
+            department_name VARCHAR(255)
+            );
+            CREATE TABLE employee (
+            employee_id INT AUTO_INCREMENT PRIMARY KEY,
+            employee_name VARCHAR(255),
+            department_id INT,
+            FOREIGN KEY (department_id) REFERENCES department(department_id)
+            );
+            INSERT INTO department (department_name) VALUES
+            ('Engineering'),
+            ('Marketing'),
+            ('HR');
+            INSERT INTO employee (employee_name, department_id) VALUES
+            ('John Doe', 1),
+            ('Jane Smith', 2),
+            ('MichaelJohnson', 3),
+            ('Emily Brown', 1);
+            SELECT employee.employee_name, department.department_name
+            FROM employee
+            INNER JOIN department ON employee.department_id = department.department_id;
+            SELECT employee.employee_name, department.department_name
+            FROM employee
+            LEFT JOIN department ON employee.department_id = department.department_id;
+            SELECT employee.employee_name, department.department_name
+            FROM department
+            RIGHT JOIN employee ON department.department_id = employee.department_id;
+            SELECT employee.employee_name, department.department_name
+            FROM employee
+            LEFT JOIN department ON employee.department_id = department.department_id
+            UNION
+            SELECT employee.employee_name, department.department_name
+            FROM department
+            LEFT JOIN employee ON department.department_id = employee.department_id;</pre>
 
     <h2>Program 6 <button class="copy-btn" onclick="copyCode('code6')">Copy Code</button>
     </h2>
-    <pre id="code6">
-    import java.io.*; 
-    import java.applet.*; 
-    import java.awt.*; 
-    import java.awt.event.*; 
-    import java.util.*; 
-    
-    /*(applet code="translate" width=800 height=800)(/applet)*/  
-    
-    public class translate extends Applet implements ActionListener { 
-        int t; 
-        int x, y, x1, y1, x2, y2; 
-        int tx, ty; 
-        
-        public void init() { 
-            Button b1; 
-            b1 = new Button("translate"); 
-            add(b1); 
-            b1.addActionListener(this); 
-        } 
-        
-        public void actionPerformed(ActionEvent ae) { 
-            if (ae.getActionCommand() == "translate") 
-                t = 1; 
-            repaint(); 
-        } 
-        
-        public void paint(Graphics g) { 
-            x = 150; y = 50; 
-            x1 = 100; y1 = 150; 
-            x2 = 200; y2 = 150; 
-            tx = 100; ty = 100; 
-            
-            g.drawLine(x, y, x1, y1); 
-            g.drawLine(x1, y1, x2, y2); 
-            g.drawLine(x2, y2, x, y); 
-            
-            if (t == 1) { 
-                x = (tx + x); 
-                y = (ty + y); 
-                x1 = (tx + x1); 
-                y1 = (ty + y1); 
-                x2 = (tx + x2); 
-                y2 = (ty + y2); 
-                
-                g.drawLine(x, y, x1, y1); 
-                g.drawLine(x1, y1, x2, y2); 
-                g.drawLine(x2, y2, x, y); 
-            } 
-        } 
-    }</pre>
+    <pre id="code6">select user from mysql.user;
+        create user 'employee' @'localhost' identified by 'emp';
+        grant create, select on *.* to 'employee'@'localhost';
+         show tables;
+         show databases;
+         use num;
+         create table
+         emp_info (enumber int, ename varchar(20));
+         insert into emp info(enumber,ename) values(1,’raj’);
+         select * from emp_info;
+        drop table emp_info;
+         drop user 'employee' @ 'localhost';
+        create user 'staff' @'localhost' identified by 'staff';
+        grant all privileges on *.* to 'staff'@'localhost';
+         revoke all privileges on*.* from 'staff'@ 'localhost';
+         flush privileges;</pre>
 
     <h2>Program 7 <button class="copy-btn" onclick="copyCode('code7')">Copy Code</button>
     </h2>
-    <pre id="code7">
-import java.io.*; 
-import java.applet.*; 
-import java.awt.*; 
-import java.util.*; 
-import java.math.*; 
-
-/*(applet code="bounce" width=900 height=900)(/applet)*/ 
-
-public class bounce extends Applet { 
-    int x, y, w, h, x1, y1, R, G, B; 
-    
-    public void init() { 
-        x = 10; 
-        y = 10; 
-        w = 100; 
-        h = 100; 
-        x1 = 100; 
-        y1 = 50; 
-        R = 0; 
-        G = 250; 
-        B = 250; 
-    } 
-    
-    public void paint(Graphics g) { 
-        Color c = new Color(R, G, B); 
-        g.setColor(c); 
-        g.fillOval(x, y, w, h); 
-        repaint(); 
+    <pre id="code7">show databases;
+        create database AASWC;
+        use AASWC;
+         create table Student
+        (Stu_Regno int auto_increment primary key,
+        Stu_Name Varchar(50),
+        birth_date date);
+         drop table student;
+         insert into student(Stu_Name,birth_date)values(‘Rama’,’2000-01-01’),(‘Raja’,1999-05-
+         15’),(‘Selvan’,’2000-12-10’);
         
-        try { 
-            Thread.sleep(1000); 
-        } catch (InterruptedException ie) { 
-        } 
-        
-        if (x > 2000) { 
-            x = 10; 
-        } 
-        if (y > 0) { 
-            y1 = 50; 
-        } 
-        if (y > 900) { 
-            y1 = 50; 
-        } 
-        
-        x += x1; 
-        y += y1; 
-    } 
-}</pre>
+         select Stu_Name,timestampdiff(Year,birth_date,CURDATE())as age
+         from Student
+        where char_length(Stu_Name)=4;</pre>
     
 <h2>Program 8 <button class="copy-btn" onclick="copyCode('code8')">Copy Code</button>
 </h2>
-<pre id="code8">
-import java.io.*; 
-import java.applet.*; 
-import java.awt.*; 
-import java.util.*; 
-import java.math.*; 
-
-/*(applet code="randomball" width=500 height=500>(/applet>*/  
-
-public class randomball extends Applet { 
-    int x, y, w, h; 
-    
-    public void init() { 
-        x = 100; 
-        y = 150; 
-        w = 100; 
-        h = 100; 
-    } 
-    
-    public void paint(Graphics g) { 
-        for (int i = 0; i <= 10; i++) { 
-            g.fillOval(x, y, w, h); 
-            
-            try { 
-                Thread.sleep(100); 
-            } catch (InterruptedException ie) { 
-            } 
-            
-            Random r = new Random(); 
-            x = r.nextInt(600); 
-            y = r.nextInt(600); 
-            int R = r.nextInt(125); 
-            int G = r.nextInt(210); 
-            int B = r.nextInt(205); 
-            Color c = new Color(R, G, B); 
-            g.setColor(c); 
-        } 
-    } 
-}</pre>
-
-<h2>Program 9 <button class="copy-btn" onclick="copyCode('code9')">Copy Code</button>
-</h2>
-<pre id="code9">
-    import java.applet.*; 
-    import java.awt.*; 
-    import java.awt.event.*; 
-    
-    /*(applet code="tilecase" width=900 height=900>(/applet>*/  
-    
-    public class tilecase extends Applet implements ActionListener { 
-        Image img; 
-        int w = 100, h = 100, x, y, c; 
-        Button b1 = new Button("tile"); 
-        Button b2 = new Button("cascade"); 
-        
-        public void init() { 
-            img = getImage(getCodeBase(), "1.jpg"); 
-            b1.addActionListener(this); 
-            add(b1); 
-            b2.addActionListener(this); 
-            add(b2); 
-        } 
-        
-        public void actionPerformed(ActionEvent ae) { 
-            if (ae.getActionCommand() == "tile") 
-                c = 1; 
-            if (ae.getActionCommand() == "cascade") 
-                c = 2; 
-            repaint(); 
-        } 
-        
-        public void paint(Graphics r) { 
-            x = 0; 
-            y = 0; 
-            
-            if (c == 1) { 
-                while (y < getHeight()) { 
-                    r.drawImage(img, x, y, this); 
-                    x += w; 
-                    if (x > getWidth()) { 
-                        x = 0; 
-                        y += h; 
-                    } 
-                } 
-            } 
-            
-            if (c == 2) { 
-                for (int i = 0; i <= 8; i++) { 
-                    r.drawImage(img, x, y, this); 
-                    x += 30; 
-                    y += 30; 
-                } 
-            } 
-        } 
-    }</pre>
-
-<h2>Program 10 <button class="copy-btn" onclick="copyCode('code10')">Copy Code</button>
-</h2>
-<pre id="code10">
-import java.io.*; 
-import java.applet.*; 
-import java.awt.*; 
-
-/*(applet code="size" width=800 height=800>(/applet>*/  
-
-public class size extends Applet { 
-    Image img; 
-    int w, h, x, y; 
-    
-    public void init() { 
-        w = 500; 
-        h = 500; 
-        x = 0; 
-        y = 0; 
-        img = getImage(getDocumentBase(), "1.jpg"); 
-    } 
-    
-    public void paint(Graphics g) { 
-        g.drawImage(img, x, y, w, h, this); 
-        
-        try { 
-            Thread.sleep(100); 
-        } catch (InterruptedException ie) {} 
-        
-        if (w > 0) 
-            repaint(); 
-        
-        x += 5; 
-        y += 5; 
-        h -= 5; 
-        w -= 5; 
-    } 
-}</pre>
+<pre id="code8">CREATE DATABASE KIDS;
+    USE KIDS;
+    CREATE TABLE PERSONAL_INFO(
+    KID_NAME VARCHAR(50),
+    AGE INT;
+    FATHER_NAME VARCHAR(50);
+    MOTHER_NAME VARCHAR(50);
+    );
+    INSERT TWO PERSONAL_INFO VALUES(‘SHRAVAN’,6,’BOSS’,SARANYA’);
+    SELECT * FROM PERSONAL_INFO;
+     START TRANSCATION;
+     SAVEPOINT ADDING_VALUES;
+    INSERT INTO PERSONAL_INFO VALUES(‘RIYA’,0,’VETRI’,’NARMATHA’);
+     ROLLBACK TO ADDING_VALUES;
+     SAVEPOINT DELETE_VALUES;
+     DELETE FROM PERSONAL_INFO WHERE AGE=6;
+     ROLLBACK TO DELETE_VALUES;
+    SET SQL_SAFE_UPDATES=0;
+    COMMIT;</pre>
 
 <script>
     function copyCode(id) {
