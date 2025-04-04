@@ -55,218 +55,214 @@
     <h2>Program 1 <button class="copy-btn" onclick="copyCode('code1')">Copy Code</button>
     </h2>
     <pre id="code1">
-        CREATE DATABASE CO2;
-        USE CO2;
-        CREATE TABLE COURSEE (
-        C_ID INT PRIMARY KEY auto_increment, COURSE_NAME VARCHAR(50),
-        COURSE_DURATION INT,
-        COURSE_OUTCOME VARCHAR (50)
-        );
-         SHOW TABLES;
-         INSERT INTO COURSE (COURSE_NAME,COURSE_DURATION, COURSE_OUTCOME)
-        VALUES ("BSC",3,"TO GET A JOB"); INSERT INTO COURSEE
-        (COURSE_NAME,COURSE_DURATION,COURSE_OUTCOME)
-        VALUES ("BCA",3,"TO GET A JOB"); INSERT INTO COURSEE
-        (COURSE_NAME,COURSE_DURATION,COURSE_OUTCOME)
-        VALUES ("MBA",2,"TO MAKE A BUSINESS");
-        
-         SELECT * FROM COURSE;
-         CREATE TABLE STUDENTS (
-        S_ID INT PRIMARY KEY auto_increment, STUDENT_NAME VARCHAR(50),
-        STUDENT_REGNO INT,
-        STUDENT_PLACE VARCHAR (50)
-        );  
-
-        INSERT INTO STUDENTS (STUDENT_NAME ,STUDENT_REGNO,STUDENT_PLACE)
-        VALUES ("VETRI", 1234,"THOOTHUKUDI");
-         CREATE TABLE STAFFS (
-        S_ID INT PRIMARY KEY auto_increment, STAFF_NAME VARCHAR(50),
-        STAFF_DESIGNATION VARCHAR(50), STAFF_QUALIFICATION VARCHAR (50)
-        );
-
-         INSERT INTO STAFFS
-        (STAFF_NAME,STAFF_DESIGNATION,STAFF_QUALIFICATION) VALUES ("VETRIVEL
-        PANDIAN","ASSISTANT PROFESSOR","MCA");
-         SHOW DATABASES;
-         SELECT * FROM STAFFS;
-         SELECT * FROM STUDENTS;
-         SELECT * FROM COURSE;  </pre>
+        clc
+        close
+        while(1)
+        disp"1.linear"
+        disp"2.circular"
+        disp"3.exit"
+         d=input("enter your choice")
+         switch(d)
+         case 1 then
+         clc
+         x=[4,5,6;7,8,9]
+        h=[1;1]
+        disp(x)
+         disp(h)
+        y=convol2d(x,h)
+        disp("linear calculation")
+         disp(y)
+        continue
+        case 2 then
+        clc
+        x=[1,2;3,4]
+        h=[5,6;7,8]
+        x=fft2(x)
+        y=fft2(h)
+        y=x.*h
+        y=fft2(y)
+         disp("circular canvalution")
+         disp(y)
+        continue 
+        case 3 then
+        disp("existing")
+        break
+         end
+        end</pre>
 
     <h2>Program 2 <button class="copy-btn" onclick="copyCode('code2')">Copy Code</button>
     </h2>
-    <pre id="code2">SHOW DATABASES;
-        CREATE DATABASE ITEM;
-        USE ITEM;
-        CREATE TABLE STOCK ( ITEM_NO INT PRIMARY KEY AUTO_INCREMENT ,
-        ITEM_NAME VARCHAR(50) , QUANTITY INT , PRICE INT , TOTAL INT );
-         SHOW TABLES;
-         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“SUGAR” , 500
-        , 20 , 250 );
-         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“RICE” , 1000 ,
-         80 , 1250 );
-         INSERT INTO STOCK ( ITEM_NAME , QUANTITY , PRICE , TOTAL ) VALUES (“OIL” , 2500 ,
-         200 , 2250 );
-         SELECT * FROM STOCK
-         DELETE FROM STOCK WHERE ITEM_NO = 4;
-         UPDATE STOCK SET ITEM_NAME = ‘YIPEE’ WHERE ITEM_NO=1;
-         DROP TABLE STOCK;</pre>
+    <pre id="code2">
+        clc
+        clear
+        close
+        im=uigetfile("cat.jpg")
+        a=imread(im)
+        [m,n]=size(a)
+        subplot(221)
+        imshow(a)
+        title('original image')
+        A=fft2(double(a))
+        subplot(222)
+        imshow(int(A))
+        title('discrete foutier transform(dft)image')
+        b=dct(double(a))
+        subplot(223)
+        imshow(int(b))
+        title('discrete cosine transform ') </pre>
 
     <h2>Program 3 <button class="copy-btn" onclick="copyCode('code3')">Copy Code</button>
     </h2>
-    <pre id="code3">CREATE DATABASE THIRD;
-        SHOW DATABASES;
-        USE THIRD;
-        CREATE TABLE employee (
-        employee_id INT AUTO_INCREMENT PRIMARY KEY,
-        employee_name VARCHAR(255),
-        department VARCHAR(255),
-        salary DECIMAL(10, 2),
-        hire_date DATE
-        );
-         INSERT INTO employee (employee_name, department, salary, hire_date)
-        VALUES
-        ('John Doe', 'Engineering', 60000.00, '2020-01-15'),
-        ('Jane Smith', 'Marketing', 55000.00, '2019-05-20'),
-        ('MichaelJohnson', 'HR', 50000.00, '2021-03-10'),
-        ('Emily Brown', 'Engineering', 65000.00, '2022-02-28');
-         SELECT * FROM employee;
-         SELECT * FROM employee WHERE department = 'Engineering';
-         SELECT * FROM employee WHERE salary > 55000;
-         SELECT * FROM employee WHERE hire_date > '2021-01-01';
-         SELECT * FROM employee ORDER BY salary DESC;
-         SELECT MAX(salary) AS highest_salary FROM employee;
-         SELECT AVG(salary) AS average_salary FROM employee;</pre>
+    <pre id="code3">
+        clc; 
+        close;
+        im=uigetfile("cat.jpg); 
+        a=imread(im)
+        a=rgb2gray(a)
+        A=double(a)+50;
+        A=uint8(A)
+        //Contrast Manipulation
+        B=double(a)*0.5;
+        B=uint8(B)
+        C=255-a
+        subplot(221)
+        imshow(a)
+        title('Original image')
+        subplot(222) imshow(A)
+        title('Brightness Enhances
+        image') subplot(223)
+        imshow(B) title('Contrast
+        Manipulated image')
+        subplot(224) imshow(C)
+        title('Negative image') </pre>
 
     <h2>Program 4 <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
     </h2>
-    <pre id="code4">SHOW DATABASES;
-        CREATE DATABASE KAMARAJCOLLEGE;
-        USE KAMARAJCOLLEGE;
-        CREATE TABLE STUDENT_MARK (
-        STU_REGNO INT PRIMARY KEY,
-        STU_NAME VARCHAR(100),
-        STU_DEGREE VARCHAR(50),
-        MYSQL_LABMARKS INT,
-        JAVA_MARKS INT
-       );
-        SHOW TABLES;
-        DESCRIBE STUDENT_MARK;
-        INSERT INTO STUDENT_MARK (STU_REGNO, STU_NAME, STU_DEGREE,
-        MYSQL_LABMARKS,JAVA_MARKS) VALUES (125, 'VIGNESH', 'BSC', 100, 99);
-        SELECT * FROM STUDENT_MARK
-        SELECT COUNT(STU_DEGREE) FROM STUDENT_MARK;
-        SELECT STU_NAME, COUNT(STU_NAME) FROM STUDENT_MARK GROUP BY STU_NAME;
-        SELECT SUM(MYSQL_LABMARKS) AS TOTAL FROM STUDENT_MARK;
-       SELECT SUM(MYSQL_LABMARKS + JAVA_MARKS) AS TOTAL_MARKS FROM
-       STUDENT_MARK WHERE STU_REGNO = 125;
-       SELECT AVG(MYSQL_LABMARKS) AS TOTAL_AVERAGE FROM STUDENT_MARK;
-       SELECT MAX(MYSQL_LABMARKS) FROM STUDENT_MARK;
-       SELECT STU_NAME, MYSQL_LABMARKS AS FIRST_MARKS
-       FROM STUDENT_MARKS
-      WHERE MYSQL_LABMARKS = (SELECT MAX(MYSQL_LABMARKS) FROM
-      STUDENT_MARKS);
-       SELECT MIN(MYSQL_LABMARKS) FROM STUDENT_MARKS;
-       SELECT STU_NAME, MYSQL_LABMARKS AS LAST_MARKS
-       FROM STUDENT_MARKS
-      WHERE MYSQL_LABMARKS = (SELECT MIN(MYSQL_LABMARKS) FROM
-      STUDENT_MARKS);</pre>
+    <pre id="code4">
+        Clc
+        clear
+        close
+        im=uigetfile("cat.jpeg")
+        a=imread(im)
+        [m,n]=size(a)
+        a=rgb2gray(a)
+        t=input("enter the threshold value")
+        for i=1:m
+         for j=1:n
+         if(a(i,j)(t)
+         b(i,j)=0
+         else
+         b(i,j)=255
+         end
+         end
+        end
+        figure(1)
+        imshow(a)
+        title('Original image')
+        figure(2) imshow(b)
+        title('Thresholdedimage')
+        xlabel(sprintf('thresholded value is %g',t)) 
+    </pre>
 
     <h2>Program 5 <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
     </h2>
     <pre id="code5">
-        CREATE TABLE department (
-            department_id INT AUTO_INCREMENT PRIMARY KEY,
-            department_name VARCHAR(255)
-            );
-            CREATE TABLE employee (
-            employee_id INT AUTO_INCREMENT PRIMARY KEY,
-            employee_name VARCHAR(255),
-            department_id INT,
-            FOREIGN KEY (department_id) REFERENCES department(department_id)
-            );
-            INSERT INTO department (department_name) VALUES
-            ('Engineering'),
-            ('Marketing'),
-            ('HR');
-            INSERT INTO employee (employee_name, department_id) VALUES
-            ('John Doe', 1),
-            ('Jane Smith', 2),
-            ('MichaelJohnson', 3),
-            ('Emily Brown', 1);
-            SELECT employee.employee_name, department.department_name
-            FROM employee
-            INNER JOIN department ON employee.department_id = department.department_id;
-            SELECT employee.employee_name, department.department_name
-            FROM employee
-            LEFT JOIN department ON employee.department_id = department.department_id;
-            SELECT employee.employee_name, department.department_name
-            FROM department
-            RIGHT JOIN employee ON department.department_id = employee.department_id;
-            SELECT employee.employee_name, department.department_name
-            FROM employee
-            LEFT JOIN department ON employee.department_id = department.department_id
-            UNION
-            SELECT employee.employee_name, department.department_name
-            FROM department
-            LEFT JOIN employee ON department.department_id = employee.department_id;</pre>
+        close
+        clc
+        im=uigetfile("cat.jp"
+        )
+        a=imread(im)
+        b=rgb2gray(a)
+        c=edge(b,'sobel');
+        d=edge(b,'prewitt'); e=edge(b,'log');
+        f=edge(b,'canny');
+        figure
+        imshow(a)
+        title('Original imge')
+        figure
+        imshow(b)
+        title('Gray image')
+        figure
+        imshow(c)
+        title('edge detection using sobel')
+        figure
+        imshow(d)
+        title('edge detection using prewitt')
+        figure imshow(e)
+        title('edge detection using log')
+        figure
+        imshow(f)
+        title('edge detection using canny')
+    </pre>
 
     <h2>Program 6 <button class="copy-btn" onclick="copyCode('code6')">Copy Code</button>
     </h2>
-    <pre id="code6">select user from mysql.user;
-        create user 'employee' @'localhost' identified by 'emp';
-        grant create, select on *.* to 'employee'@'localhost';
-         show tables;
-         show databases;
-         use num;
-         create table
-         emp_info (enumber int, ename varchar(20));
-         insert into emp info(enumber,ename) values(1,’raj’);
-         select * from emp_info;
-        drop table emp_info;
-         drop user 'employee' @ 'localhost';
-        create user 'staff' @'localhost' identified by 'staff';
-        grant all privileges on *.* to 'staff'@'localhost';
-         revoke all privileges on*.* from 'staff'@ 'localhost';
-         flush privileges;</pre>
+    <pre id="code6">
+        clc
+        clear all
+        close
+        im=uigetfile("cat.jpeg")
+        img=imread(im)
+        se=imcreatese('rect',5,5)
+        ie=imerode(img,se)
+        id=imdilate(img,se)
+        subplot(221)
+        title('original image')
+        imshow(img)
+        subplot(222)
+        title('erode image')
+        imshow(ie)
+        subplot(223)
+        title('dilated image')
+        imshow(id)
+    </pre>
 
     <h2>Program 7 <button class="copy-btn" onclick="copyCode('code7')">Copy Code</button>
     </h2>
-    <pre id="code7">show databases;
-        create database AASWC;
-        use AASWC;
-         create table Student
-        (Stu_Regno int auto_increment primary key,
-        Stu_Name Varchar(50),
-        birth_date date);
-         drop table student;
-         insert into student(Stu_Name,birth_date)values(‘Rama’,’2000-01-01’),(‘Raja’,1999-05-
-         15’),(‘Selvan’,’2000-12-10’);
-        
-         select Stu_Name,timestampdiff(Year,birth_date,CURDATE())as age
-         from Student
-        where char_length(Stu_Name)=4;</pre>
+    <pre id="code7">
+        Clc
+        clear all
+        close
+        im=uigetfile("cat.jpeg")
+        img=imread(im)
+        se=imcreatese('rect',5,5)oimg=im
+        open(img,se)
+        cimg=imclose(img,se)
+        subplot(221)
+        title('original image')
+        imshow(img)
+        subplot(222)
+        title('opened image')
+        imshow(oimg)
+        subplot(223)
+        title('closed image')
+        imshow(cimg)</pre>
     
 <h2>Program 8 <button class="copy-btn" onclick="copyCode('code8')">Copy Code</button>
 </h2>
-<pre id="code8">CREATE DATABASE KIDS;
-    USE KIDS;
-    CREATE TABLE PERSONAL_INFO(
-    KID_NAME VARCHAR(50),
-    AGE INT;
-    FATHER_NAME VARCHAR(50);
-    MOTHER_NAME VARCHAR(50);
-    );
-    INSERT TWO PERSONAL_INFO VALUES(‘SHRAVAN’,6,’BOSS’,SARANYA’);
-    SELECT * FROM PERSONAL_INFO;
-     START TRANSCATION;
-     SAVEPOINT ADDING_VALUES;
-    INSERT INTO PERSONAL_INFO VALUES(‘RIYA’,0,’VETRI’,’NARMATHA’);
-     ROLLBACK TO ADDING_VALUES;
-     SAVEPOINT DELETE_VALUES;
-     DELETE FROM PERSONAL_INFO WHERE AGE=6;
-     ROLLBACK TO DELETE_VALUES;
-    SET SQL_SAFE_UPDATES=0;
-    COMMIT;</pre>
+<pre id="code8">
+    close;
+    clc;
+    im=uigetfile("cat.jpeg")
+    a=imread(im)
+    a1=a
+    b1=a
+    c1=a
+    a1(:,:,1)=0
+    b1(:,:,2)=0
+    c1(:,:,1)=0
+    figure
+    imshow(a)
+    title('original image')
+    figure
+    imshow(a1)
+    title('red missing')
+    figure
+    imshow(b1)
+    title('gren missing')
+    figure
+    imshow(c1)
+    title('blue misiing')</pre>
 
 <script>
     function copyCode(id) {
